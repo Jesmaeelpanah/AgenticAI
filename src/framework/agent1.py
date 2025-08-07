@@ -4,11 +4,11 @@ import signal
 import sys
 import uuid
 
-from agents import Agent, function_tool, OpenAIChatCompletionsModel
-from agentic_framework.tools.embeddings_cloudflare import get_embedding
-from agentic_framework.tools.gemini_llm import ask_gemini
-from agentic_framework.tools.weaviate_kb import fetch_similar_issues, close_client
-from agentic_framework.prompts import REACT_INSTRUCTIONS
+from src import Agent, function_tool, OpenAIChatCompletionsModel
+from src.utils.embeddings_cloudflare import get_embedding
+from src.utils.gemini_llm import ask_gemini
+from src.utils.weaviate_kb import fetch_similar_issues, close_client
+from src.prompts import REACT_INSTRUCTIONS
 #from langfuse import Langfuse, Trace
 from pydantic import BaseModel
 from openai import AsyncOpenAI

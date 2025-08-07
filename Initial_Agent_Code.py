@@ -242,6 +242,7 @@ class Inconsistency(BaseModel):
     contradiction: str = Field(description="A concise description of the contradiction.")
     justification: str = Field(description="The reasoning or evidence from the text that supports this finding.")
     involved_fields: List[str] = Field(description="List of fields where the contradiction was found (e.g., ['issue_description', 'comments_log']).")
+
 class ContradictionAnalysis(BaseModel):
     """Data model for the complete contradiction analysis of an issue."""
     issue_id: str = Field(description="The ID of the issue being analyzed.")
@@ -290,7 +291,6 @@ def agent_2_detect_contradictions(issue: dict):
         print(f"Failed to parse LLM output for contradiction detection: {e}")
         print(f"Raw Output:\n{llm_output_str}")
 
-
 def agent_3_monitor_due_dates(all_issues_data: list):
     """
     Agent 3 (Stretch): Monitors issues nearing their due date.
@@ -322,6 +322,7 @@ def agent_3_monitor_due_dates(all_issues_data: list):
 class GeneratedSummaries(BaseModel):
     executive_summary: str = Field(description="A one-sentence summary focusing on the core problem and its most significant impact.")
     detailed_summary: str = Field(description="A detailed paragraph outlining the problem, business impact, and timelines.")    
+
 def agent_4b_summarize_issue_single_call(issue: dict):
     """
     Agent 4 (Alternative): Generates both summaries in a single, structured API call.
